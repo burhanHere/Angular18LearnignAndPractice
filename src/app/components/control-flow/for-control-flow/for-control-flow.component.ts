@@ -1,26 +1,24 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-structural-directive',
+  selector: 'app-for-control-flow',
   standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './structural-directive.component.html',
-  styleUrl: './structural-directive.component.css',
+  imports: [FormsModule],
+  templateUrl: './for-control-flow.component.html',
+  styleUrls: ['./for-control-flow.component.css'],
 })
-export class StructuralDirectiveComponent {
-  isDiv1Visible: Boolean;
-  isDiv2Visible: Boolean;
-  div3TextBox1: String;
-  div3TextBox2: String;
-  isDiv4Active: Boolean;
-  div4Text: String;
-  cityArray: Array<String>;
-  studentList: Array<Student>;
+export class ForControlFlowComponent {
+  public isDiv1Visible: Boolean;
+  public isDiv2Visible: Boolean;
+  public div3TextBox1: String;
+  public div3TextBox2: String;
+  public isDiv4Active: Boolean;
+  public div4Text: String;
+  public cityArray: Array<String>;
+  public studentList: Array<Student>;
 
-  constructor(private router:Router) {
+  constructor() {
     this.isDiv1Visible = true;
     this.isDiv2Visible = true;
     this.div3TextBox1 = ``;
@@ -49,17 +47,13 @@ export class StructuralDirectiveComponent {
   public toggleDiv2() {
     this.isDiv2Visible = !this.isDiv2Visible;
   }
-
-  public nevigateToAttributeDirective() {
-    this.router.navigateByUrl("attribute-directive");
-  }
 }
 
 class Student {
-  studentId: Number;
-  name: String;
-  city: String;
-  isActive: Boolean;
+  public studentId: Number;
+  public name: String;
+  public city: String;
+  public isActive: Boolean;
   constructor(
     studentId: Number,
     name: String,

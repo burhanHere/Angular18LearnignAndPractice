@@ -1,0 +1,109 @@
+<div class="mt-2 p-2 bg-secondary text-white">
+    <h1>Sructural Directive</h1>
+    <P>*ngIf, *ngFor</P>
+    <button class="btn btn-primary" routerLink="/structural-directive">Redirect To structural-directive from .html file</button>
+</div>
+<div class="row pt-3 px-3">
+    <div class="col-3 bg-primary">
+        <div [ngClass]="{'bg-danger':!isDiv1BackgroundColorChange}" class="p-3 text-center">
+            <h4>Div-1</h4>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="bg-success p-3 text-center" [ngClass]="{'bg-danger':!isDiv2BackgroundColorChange}">
+            <h4>Div-2</h4>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="bg-secondary p-3 text-center" [ngClass]="{'bg-danger':div3TextBox1!==div3TextBox2}">
+            <h4>Div-3</h4>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="bg-primary p-3 text-center" [ngClass]="{'bg-danger':isDiv4ActiveDanger}">
+            <h4>Div-4</h4>
+        </div>
+    </div>
+</div>
+
+<div class="row pt-3 px-3">
+    <div class="col-3 text-center">
+        <button (click)="bgDangerDiv1()" class="btn btn-danger">Add Red</button>
+        <button (click)="bgPrimaryDiv1()" class="btn btn-primary mx-2">Add Blue</button>
+    </div>
+    <div class="col-3 text-center">
+        <button (click)="toggleDiv2bgColor()" class="btn btn-success">Toggle</button>
+    </div>
+    <div class="col-3 text-center">
+        <input type="text" [(ngModel)]="div3TextBox1" />
+        <input type="text" [(ngModel)]="div3TextBox2" />
+    </div>
+    <div class="col-3 text-center">
+        <div style="display: flex; align-items: center;">
+            <input type="checkbox" class="width-50" [(ngModel)]="isDiv4ActiveDanger" />
+            <select>
+                <option value="Div-4" selected>Select</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Sindh">Sindh</option>
+                <option value="KPK">KPK</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="row pt-3 px-5">
+    <div class="col-3">
+        <!-- <ul>
+            <li>
+            </li>
+        </ul> -->
+    </div>
+    <div class="col-3">
+        <div>
+        </div>
+    </div>
+    <div class="col-3">
+        <!-- <select>
+            <option></option>
+        </select> -->
+    </div>
+    <div class="col-3">
+        <!-- <select>
+            <option></option>
+        </select> -->
+    </div>
+</div>
+
+
+<div class="row pt-3 px-5">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="bg-primary">
+                <th>Sr No</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Is Active</th>
+                <th>Progress</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let theStudent of studentList; let srNo= index" class="bg-success"
+                [ngClass]="{'bg-danger':!theStudent.isActive}">
+                <td>{{srNo+1}}</td>
+                <td>{{theStudent.name}}</td>
+                <td>{{theStudent.city}}</td>
+                <td>
+                    <span *ngIf="theStudent.isActive">Active</span>
+                    <span *ngIf="!theStudent.isActive">Not Active</span>
+                </td>
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" [ngStyle]="{'width': theStudent.totalProcess+'%'}">
+                            {{theStudent.totalProcess}}%
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

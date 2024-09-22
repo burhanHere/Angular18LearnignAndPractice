@@ -11,14 +11,14 @@ import { RouterLink } from '@angular/router';
   styleUrl: './attribute-directive.component.css',
 })
 export class AttributeDirectiveComponent {
-  isDiv1BackgroundColorChange: Boolean;
-  isDiv2BackgroundColorChange: Boolean;
-  div3TextBox1: String;
-  div3TextBox2: String;
-  isDiv4ActiveDanger: Boolean;
-  div4Text: String;
-  cityArray: Array<String>;
-  studentList: Array<Student>;
+  public isDiv1BackgroundColorChange: Boolean;
+  public isDiv2BackgroundColorChange: Boolean;
+  public div3TextBox1: String;
+  public div3TextBox2: String;
+  public isDiv4ActiveDanger: Boolean;
+  public div4Text: String;
+  public cityArray: Array<String>;
+  public studentList: Array<Student>;
 
   constructor() {
     this.isDiv1BackgroundColorChange = true;
@@ -38,25 +38,25 @@ export class AttributeDirectiveComponent {
     ];
   }
 
-  bgDangerDiv1() {
+  public bgDangerDiv1():void {
     this.isDiv1BackgroundColorChange = true;
   }
 
-  bgPrimaryDiv1() {
+  public bgPrimaryDiv1():void {
     this.isDiv1BackgroundColorChange = false;
   }
 
-  toggleDiv2bgColor() {
+  public toggleDiv2bgColor():void {
     this.isDiv2BackgroundColorChange = !this.isDiv2BackgroundColorChange;
   }
 }
 
 class Student {
-  studentId: Number;
-  name: String;
-  city: String;
-  isActive: Boolean;
-  totalProcess: Number;
+  public studentId: Number;
+  public name: String;
+  public city: String;
+  public isActive: Boolean;
+  public totalProcess: Number;
   constructor(
     studentId: Number,
     name: String,

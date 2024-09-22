@@ -1,38 +1,66 @@
 <div class="mt-2 p-2 bg-secondary text-white">
-    <h1>Sructural Directive</h1>
-    <P>*ngIf, *ngFor</P>
-    <button class="btn btn-primary" (click)="nevigateToAttributeDirective()">Redirect To attribute-directive</button>
+    <h1>Control Flow</h1>
+    <P>if-else</P>
 </div>
 <div class="row pt-3 px-3">
     <div class="col-3">
-        <div *ngIf="isDiv1Visible" class="bg-danger p-3 text-center">
+        @if (isDiv1Visible)
+        {
+        <div class="bg-danger p-3 text-center">
             <h4>Div-1</h4>
         </div>
+        }
     </div>
     <div class="col-3">
-        <div *ngIf="isDiv2Visible" class="bg-success p-3 text-center">
-            <h4>Div-2</h4>
+        @if (isDiv2Visible)
+        {
+        <div class="bg-success p-3 text-center">
+            <h4>Div-2 success</h4>
         </div>
+        }
+        @else {
+        <div class="bg-warning p-3 text-center">
+            <h4>Div-2 warning</h4>
+        </div>
+        }
     </div>
     <div class="col-3">
-        <div *ngIf="div3TextBox1 === div3TextBox2" class="bg-secondary p-3 text-center">
+        @if(div3TextBox1==='' && div3TextBox2==='')
+        {
+        <div class="bg-secondary p-3 text-center">
             <h4>Div-3</h4>
         </div>
+        }
+        @else if (div3TextBox1===div3TextBox2)
+        {
+        <div class="bg-success p-3 text-center">
+            <h4>same</h4>
+        </div>
+        }
+        @else
+        {
+        <div class="bg-warning p-3 text-center">
+            <h4>not equal</h4>
+        </div>
+        }
     </div>
     <div class="col-3">
-        <div *ngIf="isDiv4Active" class="bg-primary p-3 text-center">
+        @if (isDiv4Active)
+        {
+        <div class="bg-primary p-3 text-center">
             <h4>{{div4Text}}</h4>
         </div>
+        }
     </div>
 </div>
 
 <div class="row pt-3 px-3">
     <div class="col-3 text-center">
-        <button (click)="hideDiv1()" class="btn btn-danger">Hide</button>
-        <button (click)="showDiv1()" class="btn btn-danger mx-2">Show</button>
+        <button class="btn btn-danger" (click)="hideDiv1()" [disabled]="!isDiv1Visible">Hide</button>
+        <button class="btn btn-danger mx-2" (click)="showDiv1()" [disabled]="isDiv1Visible">Show</button>
     </div>
     <div class="col-3 text-center">
-        <button (click)="toggleDiv2()" class="btn btn-success">Toggle</button>
+        <button class="btn btn-success" (click)="toggleDiv2()">Toggle</button>
     </div>
     <div class="col-3 text-center">
         <input type="text" [(ngModel)]="div3TextBox1" />
@@ -40,7 +68,7 @@
     </div>
     <div class="col-3 text-center">
         <div style="display: flex; align-items: center;">
-            <input type="checkbox" [(ngModel)]="isDiv4Active" class="width-50" />
+            <input type="checkbox" class="width-50" [(ngModel)]="isDiv4Active" />
             <select [(ngModel)]="div4Text">
                 <option value="Div-4" selected>Select</option>
                 <option value="Punjab">Punjab</option>
@@ -50,28 +78,28 @@
         </div>
     </div>
 </div>
-
+<!--
 <div class="row pt-3 px-5">
     <div class="col-3">
         <ul>
-            <li *ngFor="let city of cityArray">
-                {{city}}
+            <li>
+
             </li>
         </ul>
     </div>
     <div class="col-3">
-        <div *ngFor="let cityName of cityArray">
-            {{cityName}}
+        <div>
+
         </div>
     </div>
     <div class="col-3">
         <select>
-            <option *ngFor="let cityNameValues of cityArray" [value]="cityNameValues">{{cityNameValues}}</option>
+            <option></option>
         </select>
     </div>
     <div class="col-3">
         <select>
-            <option *ngFor="let student of studentList" [value]="student.name">{{student.name}}</option>
+            <option></option>
         </select>
     </div>
 </div>
@@ -87,16 +115,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let theStudent of studentList; let srNo= index"
-                class="bg-success" [ngClass]="{'bg-danger':!theStudent.isActive}">
-                <td>{{srNo+1}}</td>
-                <td>{{theStudent.name}}</td>
-                <td>{{theStudent.city}}</td>
-                <td>
-                    <span *ngIf="theStudent.isActive">Active</span>
-                    <span *ngIf="!theStudent.isActive">Not Active</span>
-                </td>
+            <tr class="bg-success">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
         </tbody>
     </table>
-</div>
+</div> -->

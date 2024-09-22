@@ -1,0 +1,143 @@
+<div class="mt-2 p-2 bg-secondary text-white">
+  <h1>Control Flow</h1>
+  <P>if-else</P>
+</div>
+<div class="row pt-3 px-3">
+  <div class="col-3">
+    @if (isDiv1Visible)
+    {
+    <div class="bg-danger p-3 text-center">
+      <h4>Div-1</h4>
+    </div>
+    }
+  </div>
+  <div class="col-3">
+    @if (isDiv2Visible)
+    {
+    <div class="bg-success p-3 text-center">
+      <h4>Div-2 success</h4>
+    </div>
+    }
+    @else {
+    <div class="bg-warning p-3 text-center">
+      <h4>Div-2 warning</h4>
+    </div>
+    }
+  </div>
+  <div class="col-3">
+    @if(div3TextBox1==='' && div3TextBox2==='')
+    {
+    <div class="bg-secondary p-3 text-center">
+      <h4>Div-3</h4>
+    </div>
+    }
+    @else if (div3TextBox1===div3TextBox2)
+    {
+    <div class="bg-success p-3 text-center">
+      <h4>same</h4>
+    </div>
+    }
+    @else
+    {
+    <div class="bg-warning p-3 text-center">
+      <h4>not equal</h4>
+    </div>
+    }
+  </div>
+  <div class="col-3">
+    @if (isDiv4Active)
+    {
+    <div class="bg-primary p-3 text-center">
+      <h4>{{div4Text}}</h4>
+    </div>
+    }
+  </div>
+</div>
+
+<div class="row pt-3 px-3">
+  <div class="col-3 text-center">
+    <button class="btn btn-danger" (click)="hideDiv1()" [disabled]="!isDiv1Visible">Hide</button>
+    <button class="btn btn-danger mx-2" (click)="showDiv1()" [disabled]="isDiv1Visible">Show</button>
+  </div>
+  <div class="col-3 text-center">
+    <button class="btn btn-success" (click)="toggleDiv2()">Toggle</button>
+  </div>
+  <div class="col-3 text-center">
+    <input type="text" [(ngModel)]="div3TextBox1" />
+    <input type="text" [(ngModel)]="div3TextBox2" />
+  </div>
+  <div class="col-3 text-center">
+    <div style="display: flex; align-items: center;">
+      <input type="checkbox" class="width-50" [(ngModel)]="isDiv4Active" />
+      <select [(ngModel)]="div4Text">
+        <option value="Div-4" selected>Select</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Sindh">Sindh</option>
+        <option value="KPK">KPK</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="row pt-3 px-5">
+  <div class="col-3">
+    <ul>
+      @for (city of cityArray; track $index)
+      {
+      <li>
+        {{city}}
+      </li>
+      }
+    </ul>
+  </div>
+  <div class="col-3">
+    @for (city of cityArray; track $index)
+    {
+    <div>
+      {{city}}
+    </div>
+    }
+  </div>
+  <div class="col-3">
+    <select>
+      @for (city of cityArray; track $index)
+      {
+      <option value="{{city}}">
+        {{city}}
+      </option>
+      }
+    </select>
+  </div>
+</div>
+
+<div class="row pt-3 px-5">
+  <table class="table table-bordered">
+    <thead>
+      <tr class="bg-primary">
+        <th>Sr No</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Is Active</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (student of studentList; track $index)
+      {
+      <tr class="bg-success" [class]="{'bg-danger':!student.isActive}">
+        <td>{{$index+1}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.city}}</td>
+        <td>
+          @if (student.isActive) {
+          <span>Active</span>
+          }
+          @else
+          {
+          <span>Not Active</span>
+          }
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

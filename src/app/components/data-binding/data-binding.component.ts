@@ -10,23 +10,23 @@ import { FormsModule } from '@angular/forms';
 })
 export class DataBindingComponent {
   // string, number, boolean, date
-  courseName: string = `Anguler 18`;
-  provinceName: string = 'Pakistan';
-  inputType = `radio`;
-  rollNo: number = 123;
-  isPakistani: boolean = true;
-  currentDate: Date = new Date();
-  myClassName: string = 'bg-primary';
-  firstName = signal('Muhammad Burhan');
+  public courseName: string = `Anguler 18`;
+  public provinceName: string = 'Pakistan';
+  public inputType = `radio`;
+  public rollNo: number = 123;
+  public isPakistani: boolean = true;
+  public currentDate: Date = new Date();
+  public myClassName: string = 'bg-primary';
+  public firstName = signal('Muhammad Burhan');
 
   constructor() {}
 
-  showAlert(message: string) {
+  public showAlert(message: string) {
     alert(message);
   }
 
-  changeCourseName() {
+  public changeCourseName() {
     this.courseName = 'React JS';
-    this.firstName.set("Burhan is a good boy");
+    this.firstName.set('Burhan is a good boy');
   }
 }
