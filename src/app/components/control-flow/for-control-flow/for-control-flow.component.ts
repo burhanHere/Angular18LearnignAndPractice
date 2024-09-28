@@ -11,11 +11,11 @@ import { FormsModule } from '@angular/forms';
 export class ForControlFlowComponent {
   public isDiv1Visible: Boolean;
   public isDiv2Visible: Boolean;
-  public div3TextBox1: String;
-  public div3TextBox2: String;
+  public div3TextBox1: string;
+  public div3TextBox2: string;
   public isDiv4Active: Boolean;
-  public div4Text: String;
-  public cityArray: Array<String>;
+  public div4Text: string;
+  public cityArray: Array<string>;
   public studentList: Array<Student>;
 
   constructor() {
@@ -51,13 +51,13 @@ export class ForControlFlowComponent {
 
 class Student {
   public studentId: Number;
-  public name: String;
-  public city: String;
+  public name: string;
+  public city: string;
   public isActive: Boolean;
   constructor(
     studentId: Number,
-    name: String,
-    city: String,
+    name: string,
+    city: string,
     isActive: Boolean
   ) {
     this.studentId = studentId;

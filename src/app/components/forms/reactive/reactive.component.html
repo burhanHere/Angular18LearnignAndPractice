@@ -1,0 +1,107 @@
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+  <h1>Reactive Form</h1>
+  <p>Create From & Validation</p>
+</div>
+<div class="row">
+  <div class="col-8">
+    <form class="row g-3" [formGroup]="stundetForm">
+      <div class="col-md-4">
+        <label for="validationDefault01" class="form-label">First name</label>
+        <input type="text" class="form-control" id="validationDefault01" value="Mark" formControlName="firstName">
+        <div class="text-danger">
+          @if (stundetForm.controls['firstName'].errors?.['required']) {
+          <span>This is a required field.</span>
+          }@else if (stundetForm.controls['firstName'].errors?.['minlength']) {
+          <span>This required at least 2 characters.</span>
+          }@else if (stundetForm.controls['firstName'].errors?.['maxlength']){
+          <span>This required only 10 characters maximum.</span>
+          }
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">Last name</label>
+        <input type="text" class="form-control" id="validationDefault02" value="Otto" formControlName="lastName">
+        <div class="text-danger">
+          @if (stundetForm.controls['lastName'].errors?.['required']) {
+          <span>This is a required field.</span>
+          }@else if (stundetForm.controls['lastName'].errors?.['minlength']) {
+          <span>This required at least 2 characters.</span>
+          }@else if (stundetForm.controls['lastName'].errors?.['maxlength']){
+          <span>This required only 10 characters maximum.</span>
+          }
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="validationDefaultUsername" class="form-label">Username</label>
+        <div class="input-group">
+          <span class="input-group-text" id="inputGroupPrepend2">{{'@'}}</span>
+          <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2"
+            formControlName="userName">
+        </div>
+        <div class="text-danger">
+          @if (stundetForm.controls['userName'].errors?.['required']) {
+          <span>This is a required field.</span>
+          }@else if (stundetForm.controls['userName'].errors?.['minlength']) {
+          <span>This required at least 3 characters.</span>
+          }@else if (stundetForm.controls['userName'].errors?.['maxlength']){
+          <span>This required only 10 characters maximum.</span>
+          }
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="validationDefault03" class="form-label">City</label>
+        <input type="text" class="form-control" id="validationDefault03" formControlName="city">
+        @if (stundetForm.controls['city'].errors?.['required']) {
+        <div class="text-danger">
+          <span>This is a required field.</span>
+        </div>
+        }
+      </div>
+      <div class="col-md-3">
+        <label for="validationDefault04" class="form-label">Province</label>
+        <select class="form-select" id="validationDefault04" formControlName="province">
+          <option selected disabled value="">Choose...</option>
+          <option>Punjab</option>
+          <option>Sindh</option>
+          <option>KPK</option>
+          <option>Blochistan</option>
+        </select>
+        @if (stundetForm.controls['province'].errors?.['required']) {
+        <div class="text-danger">
+          <span>This is a required field.</span>
+        </div>
+        }
+      </div>
+      <div class="col-md-3">
+        <label for="validationDefault05" class="form-label">Zip</label>
+        <input type="text" class="form-control" id="validationDefault05" formControlName="zipCode">
+        @if (stundetForm.controls['zipCode'].errors?.['required']) {
+        <div class="text-danger">
+          <span>This is a required field.</span>
+        </div>
+        }
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" formControlName="isAcceptTerms">
+          <label class="form-check-label" for="invalidCheck2">
+            Agree to terms and conditions
+          </label>
+          @if (stundetForm.controls['isAcceptTerms'].errors?.['required']) {
+          <div class="text-danger">
+            <span>This is a required field.</span>
+          </div>
+          }
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary m-1" type="submit" (click)="resetForm()">Reset form</button>
+        <button class="btn btn-primary m-1" type="submit" [disabled]="stundetForm.invalid" (click)="submitForm()">Submit
+          form</button>
+      </div>
+    </form>
+  </div>
+  <div class="container" style="display: none;" #outputDiv>
+    <p>{{stundetForm.value|json}}</p>
+  </div>
+</div>

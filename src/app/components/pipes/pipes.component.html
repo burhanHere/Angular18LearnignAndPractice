@@ -1,0 +1,82 @@
+<div class="mt-4 bg-secondary text-white rounded">
+  <h4>Pipes in Angular</h4>
+  <h3>Default Pipe & Custom Pipe</h3>
+</div>
+
+<div class="row p-3 ">
+  <div class="col-2 border border-secondary m-2">
+    <h5>UpperCasePipe</h5>
+    Orignal Value - {{firstName}}
+    <br>
+    After Pipe - {{firstName | uppercase}}
+  </div>
+  <div class="col-2 border border-secondary m-2">
+    <h5>LowerCasePipe</h5>
+    Orignal Value - {{firstName}}
+    <br>
+    After Pipe - {{firstName | lowercase}}
+  </div>
+  <div class="col-2 border border-secondary m-2">
+    <h5>TitleCasePipe</h5>
+    Orignal Value - {{firstName}}
+    <br>
+    After Pipe - {{firstName | titlecase}}
+  </div>
+  <div class="col-2 border border-secondary m-2">
+    <h5>PercentPipe</h5>
+    Orignal Value - {{percentPipe}}
+    <br>
+    After Pipe - {{percentPipe | percent}}
+  </div>
+</div>
+<div class="row p-3 ">
+  <div class="col-2 border border-secondary m-2">
+    <h5>SlicePipe</h5>
+    Orignal Value - {{firstName}}
+    <br>
+    After Pipe - {{firstName | slice:0:10}}
+  </div>
+  <div class="col-2 border border-secondary m-2">
+    <h5>KeyValuePipe</h5>
+    Orignal Value - {{testObject}}
+    <br>
+    After Pipe -
+    @for (item of testObject|keyvalue; track $index)
+    {
+    {{item.key}} = {{item.value}}
+    <br>
+    }
+    Orignal Value2 - {{testClass}}
+    <br>
+    After Pipe2 -
+    @for (item of testClass|keyvalue; track $index)
+    {
+    {{item.key}} = {{item.value}}
+    <br>
+    }
+  </div>
+  <div class="col-2 border border-secondary m-2">
+    <h5>JsonPipe</h5>
+    Orignal Value - {{testObject}}
+    <br>
+    After Pipe - {{testObject | json}}
+    <br>
+    Orignal Value2 - {{testClass}}
+    <br>
+    After Pipe2 - {{testClass | json}}
+  </div>
+  <div class="col-2 border border-secondary m-2">
+    <h5>CurrencyPipe</h5>
+    Orignal Value - {{testNumber}}
+    <br>
+    After Pipe - {{testNumber | currency:'EUR'}}
+  </div>
+  <div class="col-2 border border-secondary m-2">
+    <h5>Custome NaPipe</h5>
+    Orignal Value - {{testString}}
+    <br>
+    After Pipe - {{testString | na}}
+    <br>
+    <button class="btn btn-primary" (click)="toggelTestString()">Toggle</button>
+  </div>
+</div>

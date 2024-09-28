@@ -13,11 +13,11 @@ import { RouterLink } from '@angular/router';
 export class AttributeDirectiveComponent {
   public isDiv1BackgroundColorChange: Boolean;
   public isDiv2BackgroundColorChange: Boolean;
-  public div3TextBox1: String;
-  public div3TextBox2: String;
+  public div3TextBox1: string;
+  public div3TextBox2: string;
   public isDiv4ActiveDanger: Boolean;
-  public div4Text: String;
-  public cityArray: Array<String>;
+  public div4Text: string;
+  public cityArray: Array<string>;
   public studentList: Array<Student>;
 
   constructor() {
@@ -53,14 +53,14 @@ export class AttributeDirectiveComponent {
 
 class Student {
   public studentId: Number;
-  public name: String;
-  public city: String;
+  public name: string;
+  public city: string;
   public isActive: Boolean;
   public totalProcess: Number;
   constructor(
     studentId: Number,
-    name: String,
-    city: String,
+    name: string,
+    city: string,
     isActive: Boolean,
     totalProcess: Number
   ) {

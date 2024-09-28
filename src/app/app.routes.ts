@@ -5,6 +5,9 @@ import { StructuralDirectiveComponent } from './components/directives/structural
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { IfElseControlFlowComponent } from './components/control-flow/if-else-control-flow/if-else-control-flow.component';
 import { ForControlFlowComponent } from './components/control-flow/for-control-flow/for-control-flow.component';
+import { PipesComponent } from './components/pipes/pipes.component';
+import { TemplateComponent } from './components/forms/template/template.component';
+import { ReactiveComponent } from './components/forms/reactive/reactive.component';
 
 export const routes: Routes = [
   {
@@ -31,6 +34,21 @@ export const routes: Routes = [
     path: 'for-control-flow',
     component: ForControlFlowComponent,
     title: 'for-control-flow',
+  },
+  {
+    path: 'pipes',
+    component: PipesComponent,
+    title: 'pipes',
+  },
+  {
+    path: 'template-form',
+    component: TemplateComponent,
+    title: 'template-form',
+  },
+  {
+    path: 'reactive-form',
+    component: ReactiveComponent,
+    title: 'reactive-form',
   },
   {
     path: '',

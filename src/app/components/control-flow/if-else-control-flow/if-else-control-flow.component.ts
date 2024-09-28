@@ -11,10 +11,10 @@ import { FormsModule } from '@angular/forms';
 export class IfElseControlFlowComponent {
   public isDiv1Visible: Boolean;
   public isDiv2Visible: Boolean;
-  public div3TextBox1: String;
-  public div3TextBox2: String;
+  public div3TextBox1: string;
+  public div3TextBox2: string;
   public isDiv4Active: Boolean;
-  public div4Text: String;
+  public div4Text: string;
 
   constructor() {
     this.isDiv1Visible = true;
