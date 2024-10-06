@@ -1,0 +1,65 @@
+<div class="container bg-dark mt-1" style="overflow-x: scroll;">
+  <table class="table table-secondary table-striped">
+    <thead>
+      <tr>
+        <th scope="col">{{'id'|titlecase}}</th>
+        <th scope="col">{{'name'|titlecase}}</th>
+        <th scope="col">{{'username'|titlecase}}</th>
+        <th scope="col">{{'email'|titlecase}}</th>
+        <th scope="col">{{'street'|titlecase}}</th>
+        <th scope="col">{{'suite'|titlecase}}</th>
+        <th scope="col">{{'city'|titlecase}}</th>
+        <th scope="col">{{'zipcode'|titlecase}}</th>
+        <th scope="col">{{'lat'|titlecase}}</th>
+        <th scope="col">{{'lng'|titlecase}}</th>
+        <th scope="col">{{'phone'|titlecase}}</th>
+        <th scope="col">{{'website'|titlecase}}</th>
+        <th scope="col">{{'company-name'|titlecase}}</th>
+        <th scope="col">{{'company-catchPhrase'|titlecase}}</th>
+        <th scope="col">{{'company-bs'|titlecase}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      @if (userList[0] == 'Error Fetching Data') {
+      <tr>
+        <td colspan="15" class="text-center  bg-danger">
+          {{userList[0]}}
+        </td>
+      </tr>
+      }@else if (userList.length!=0)
+      {
+      @for (item of this.userList; track $index)
+      {
+      <tr>
+        <td scope="col">{{item['id']}}</td>
+        <td scope="col">{{item['name']}}</td>
+        <td scope="col">{{item['username']}}</td>
+        <td scope="col">{{item['email']}}</td>
+        <td scope="col">{{item['address']['street']}}</td>
+        <td scope="col">{{item['address']['suite']}}</td>
+        <td scope="col">{{item['address']['city']}}</td>
+        <td scope="col">{{item['address']['zipcode']}}</td>
+        <td scope="col">{{item['address']['geo']['lat']}}</td>
+        <td scope="col">{{item['address']['geo']['lng']}}</td>
+        <td scope="col">{{item['phone']}}</td>
+        <td scope="col">{{item['website']}}</td>
+        <td scope="col">{{item['company']['name']}}</td>
+        <td scope="col">{{item['company']['catchPhrase']}}</td>
+        <td scope="col">{{item['company']['bs']}}</td>
+      </tr>
+      }
+      } @else{
+      <tr>
+        <td colspan="15" class="text-center bg-light">
+          No Data
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+<div class="row pt-1">
+  <div class="col d-flex justify-content-center align-items-center">
+    <button class="btn btn-success" (click)="getAllUsers()">Get All Users</button>
+  </div>
+</div>

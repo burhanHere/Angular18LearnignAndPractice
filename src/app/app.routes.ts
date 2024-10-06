@@ -8,6 +8,8 @@ import { ForControlFlowComponent } from './components/control-flow/for-control-f
 import { PipesComponent } from './components/pipes/pipes.component';
 import { TemplateComponent } from './components/forms/template/template.component';
 import { ReactiveComponent } from './components/forms/reactive/reactive.component';
+import { GetApiComponent } from './components/api-intigration/get-api/get-api.component';
+import { PostPutDeleteApiComponent } from './components/api-intigration/post-put-delete-api/post-put-delete-api.component';
 
 export const routes: Routes = [
   {
@@ -49,6 +51,16 @@ export const routes: Routes = [
     path: 'reactive-form',
     component: ReactiveComponent,
     title: 'reactive-form',
+  },
+  {
+    path: 'get-api',
+    component: GetApiComponent,
+    title: 'get-api',
+  },
+  {
+    path: 'post-put-delete-api',
+    component: PostPutDeleteApiComponent,
+    title: 'post-put-delete-api',
   },
   {
     path: '',

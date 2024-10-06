@@ -1,0 +1,99 @@
+<div class="d-flex justify-content-evenly w-75 mt-3">
+  <button class="btn btn-primary" (click)="alertName=alertText='primary';showAlert=!showAlert">primary</button>
+  <button class="btn btn-success"
+    (click)="alertName=alertText=alertText='success';showAlert=!showAlert">success</button>
+  <button class="btn btn-warning" (click)="alertName=alertText='warning';showAlert=!showAlert">warning</button>
+  <button class="btn btn-danger" (click)="alertName=alertText='danger';showAlert=!showAlert">danger</button>
+  <button class="btn btn-info" (click)="alertName=alertText='info';showAlert=!showAlert">info</button>
+  <button class="btn btn-light" (click)="alertName=alertText='light';showAlert=!showAlert">light</button>
+  <button class="btn btn-dark" (click)="alertName=alertText='dark';showAlert=!showAlert">dark</button>
+</div>
+
+@if (showAlert==true) {
+<app-alert [alertName]="alertName" [alertText]="alertText" (alertOnClick)="showAlert=$event"></app-alert>
+}
+
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+  <h1>Post API</h1>
+  <p>Create Department, Department List</p>
+</div>
+<div class="row pt-2">
+  <div class="col-8">
+    <div class="card">
+      <div class="card-header bg-secondary text-light">
+        Department List
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th class="text-center">Sr No</th>
+                  <th class="text-center">Id</th>
+                  <th>Name</th>
+                  <th class="text-center">Created Date</th>
+                  <th class="text-center">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (item of departmentsData; track $index)
+                {
+                <tr>
+                  <td class="text-center">{{$index+1}}</td>
+                  <td class="text-center">{{item.deptId}}</td>
+                  <td>{{item.deptName}}</td>
+                  <td class="text-center">{{item.createdDate | date:'MM/dd/y'}}</td>
+                  <td class="text-center d-flex justify-content-evenly">
+                    <button type="button" class="btn btn-outline-warning" (click)="startEditing(item)"
+                      [disabled]="editDepartment">
+                      Edit
+                    </button>
+                    <button type="button" class="btn btn-outline-danger" (click)="deleteDepartment(item['deptId'])">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4 sticky-form">
+    <div class="card">
+      <div class="card-header bg-secondary text-light">
+        New Department
+      </div>
+      <form class="card-body" [formGroup]="newDepartmentForm">
+        <div class="row">
+          <div class="col-12">
+            <label for="">Department Name</label>
+            <input type="text" class="form-control" placeholder="Enter Name" formControlName="departmentName">
+            <div class="text-danger">
+              @if (newDepartmentForm.controls['departmentName'].touched) {
+              @if (newDepartmentForm.controls['departmentName'].errors?.['required']) {
+              <span>This field is required.</span>
+              }@else if (newDepartmentForm.controls['departmentName'].errors?.['minlength']) {
+              <span>Atleast 3 characters are required in the name.</span>
+              }
+              }
+            </div>
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div class="col-6 text-center">
+            <button class="btn btn-secondary" (click)="resetAll()">Reset</button>
+          </div>
+          <div class="col-6 text-center">
+            <button class="btn btn-primary" (click)="submitRecord()"
+              [disabled]="newDepartmentForm.invalid">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

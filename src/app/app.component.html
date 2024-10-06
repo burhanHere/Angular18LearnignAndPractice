@@ -1,60 +1,43 @@
 <nav class="navbar navbar-expand-sm bg-dark nevbar-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="">Angular18TutorialsInHindi_LearningPartne</a>
+    <a class="navbar-brand text-primary" routerLink="">Angular18TutorialsInHindi_LearningPartner</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
+        @for (item of nevbarData; track $index) {
+        @if (!item.isDropDown) {
         <li class="nav-item mx-1">
-          <a class="nav-link btn btn-dark" routerLink="data-binding" routerLinkActive="active"
+          <a class="nev-link btn btn-dark w-100" [routerLink]="item.routerLink" routerLinkActive="active"
             ariaCurrentWhenActive="page">
-            Data Binding
+            {{item.displayText}}
           </a>
         </li>
-        <li class="nav-item mx-1">
-          <a class="nav-link btn btn-dark" routerLink="structural-directive" routerLinkActive="active"
-            ariaCurrentWhenActive="page">
-            Structural Directive
+        }@else {
+        <div class="dropdown">
+          <a class="btn btn-dark dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            {{item.displayText}}
           </a>
-        </li>
-        <li class="nav-item mx-1">
-          <a class="nav-link btn btn-dark" routerLink="attribute-directive" routerLinkActive="active"
-            ariaCurrentWhenActive="page">
-            Attribute Directive
-          </a>
-        </li>
-        <li class="nav-item mx-1">
-          <a class="nav-link btn btn-dark" routerLink="if-else-control-flow" routerLinkActive="active"
-            ariaCurrentWhenActive="page">
-            if-else-control-flow
-          </a>
-        </li>
-        <li class="nav-item mx-1">
-          <a class="nav-link btn btn-dark" routerLink="for-control-flow" routerLinkActive="active"
-            ariaCurrentWhenActive="page">
-            for-control-flow
-          </a>
-        </li>
-        <li class="nav-item mx-1">
-          <a class="nav-link btn btn-dark" routerLink="pipes" routerLinkActive="active"
-            ariaCurrentWhenActive="page">
-            pipes
-          </a>
-        </li>
-        <li class="nav-item mx-1">
-          <a class="nav-link btn btn-dark" routerLink="template-form" routerLinkActive="active"
-            ariaCurrentWhenActive="page">
-            template-form
-          </a>
-        </li>
-        <li class="nav-item mx-1">
-          <a class="nav-link btn btn-dark" routerLink="reactive-form" routerLinkActive="active"
-            ariaCurrentWhenActive="page">
-            reactive-form
-          </a>
-        </li>
+          <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
+            @for(item2 of item.dropDownListElements; track $index)
+            {<li class="nav-item mx-1">
+              <a class="nev-link btn btn-dark w-100" [routerLink]="item2.routerLink" routerLinkActive="active"
+                ariaCurrentWhenActive="page">
+                {{item2.displayText}}
+              </a>
+            </li>
+            @if (item.dropDownListElements!.indexOf(item2)<item.dropDownListElements!.length-1) { <li>
+              <hr class="dropdown-divider border border-light">
+              </li>
+              }
+              }
+          </ul>
+        </div>
+        }
+        }
       </ul>
     </div>
   </div>

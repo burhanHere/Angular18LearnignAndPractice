@@ -1,0 +1,6 @@
+.sticky-form {
+  position: fixed;
+  bottom: 20px;
+  /* Adjust as needed */
+  right: 20px;
+}
