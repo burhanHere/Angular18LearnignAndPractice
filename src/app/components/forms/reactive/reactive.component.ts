@@ -6,11 +6,12 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { PageHeaderComponent } from '../../../reuseableComponent/page-header/page-header.component';
 
 @Component({
   selector: 'app-reactive',
   standalone: true,
-  imports: [ReactiveFormsModule, JsonPipe],
+  imports: [ReactiveFormsModule, JsonPipe,PageHeaderComponent],
   templateUrl: './reactive.component.html',
   styleUrl: './reactive.component.css',
 })

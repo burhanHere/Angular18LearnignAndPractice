@@ -10,6 +10,7 @@ import {
 } from '@angular/common';
 import { BootstrapOptions, Component } from '@angular/core';
 import { NaPipe } from '../../Pipes/na.pipe';
+import { PageHeaderComponent } from '../../reuseableComponent/page-header/page-header.component';
 
 @Component({
   selector: 'app-pipes',
@@ -24,6 +25,7 @@ import { NaPipe } from '../../Pipes/na.pipe';
     JsonPipe,
     CurrencyPipe,
     NaPipe,
+    PageHeaderComponent,
   ],
   templateUrl: './pipes.component.html',
   styleUrls: ['./pipes.component.css'],

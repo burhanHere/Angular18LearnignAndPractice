@@ -10,6 +10,7 @@ import { TemplateComponent } from './components/forms/template/template.componen
 import { ReactiveComponent } from './components/forms/reactive/reactive.component';
 import { GetApiComponent } from './components/api-intigration/get-api/get-api.component';
 import { PostPutDeleteApiComponent } from './components/api-intigration/post-put-delete-api/post-put-delete-api.component';
+import { LifecycleEventsComponent } from './components/lifecycle-events/lifecycle-events.component';
 
 export const routes: Routes = [
   {
@@ -61,6 +62,11 @@ export const routes: Routes = [
     path: 'post-put-delete-api',
     component: PostPutDeleteApiComponent,
     title: 'post-put-delete-api',
+  },
+  {
+    path: 'lifecycle-events',
+    component: LifecycleEventsComponent,
+    title: 'lifecycle-events',
   },
   {
     path: '',

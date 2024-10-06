@@ -1,7 +1,4 @@
-<div class="mt-2 p-2 bg-secondary text-white rounded">
-  <h1>Template Forms</h1>
-  <p>Using ngModel</p>
-</div>
+<app-page-header heading="Template Forms" paragraph="Using ngModel"></app-page-header>
 <div class="row">
   <div class="col-8">
     <form class="row g-3" #thisForm="ngForm">
@@ -112,12 +109,13 @@
       </div>
       <div class="col-12">
         <button class="btn btn-primary m-1" type="submit" (click)="thisForm.resetForm()">Reset form</button>
-        <button class="btn btn-primary m-1" type="submit" [disabled]="thisForm.invalid" (click)="outputDiv.style.display='block'">Submit
+        <button class="btn btn-primary m-1" type="submit" [disabled]="thisForm.invalid"
+          (click)="outputDiv.style.display='block'">Submit
           form</button>
       </div>
     </form>
   </div>
-  <div class="container" style="display: none;"  #outputDiv>
+  <div class="container" style="display: none;" #outputDiv>
     <p>{{studentObj|json}}</p>
   </div>
 </div>

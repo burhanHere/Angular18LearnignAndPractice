@@ -1,50 +1,50 @@
 <div class="row">
-    <div class="col-4">
-        one way - form .ts to .html
-    </div>
-    <div class="col-4">
-        tow way
-    </div>
-    <div class="col-4">
+  <div class="col-4">
+    one way - form .ts to .html
+  </div>
+  <div class="col-4">
+    tow way
+  </div>
+  <div class="col-4">
 
-    </div>
+  </div>
 </div>
 
 <div class="row">
-    <div class="col-6">
-        <div class="row">
-            <div class="col-4 bg-success">
-                interpolation
-                <h4>{{courseName}}</h4>
-                <div>{{inputType}}</div>
-                <input type="text" name="" id="" value="{{courseName}}" placeholder="Enter text">
-                <input type="{{inputType}}" name="" id="" value="{{courseName}}" placeholder="Enter text">
-            </div>
-            <div class="col-4">
-                Property Binding
-                <div [class]="myClassName">Danger</div>
-                <input type="text" name="" id="" [value]="courseName" placeholder="Enter text">
-                <input [type]="inputType" name="" id="" value="{{courseName}}" placeholder="Enter text">
-            </div>
-            <div class="col-4">
-                Event Binding
-                <button class="btn btn-success" (click)="showAlert('Welcome angular 18')">Show Welcome</button>
-                <span (click)="showAlert('This is form span')">Click me</span>
-                <button class="btn btn-success" (click)="changeCourseName()">Show Welcome</button>
-            </div>
-        </div>
+  <div class="col-6">
+    <div class="row">
+      <div class="col-4 bg-success">
+        interpolation
+        <h4>{{courseName}}</h4>
+        <div>{{inputType}}</div>
+        <input type="text" name="" id="" value="{{courseName}}" placeholder="Enter text">
+        <input type="{{inputType}}" name="" id="" value="{{courseName}}" placeholder="Enter text">
+      </div>
+      <div class="col-4">
+        Property Binding
+        <div [class]="myClassName">Danger</div>
+        <input type="text" name="" id="" [value]="courseName" placeholder="Enter text">
+        <input [type]="inputType" name="" id="" value="{{courseName}}" placeholder="Enter text">
+      </div>
+      <div class="col-4">
+        Event Binding
+        <button class="btn btn-success" (click)="showAlert('Welcome angular 18')">Show Welcome</button>
+        <span (click)="showAlert('This is form span')">Click me</span>
+        <button class="btn btn-success" (click)="changeCourseName()">Show Welcome</button>
+      </div>
     </div>
-    <div class="col-6">
-        <input type="text" [(ngModel)]="courseName" /> - {{courseName}}
-        <input type="checkbox" [(ngModel)]="isPakistani" />
-        <select name="" id="" [(ngModel)]="provinceName">
-            <option value="">select</option>
-            <option value="">Punjab</option>
-            <option value="">Sinth</option>
-        </select>
-    </div>
-    <div class="col-6">
-        <h2>{{firstName()}}</h2>
+  </div>
+  <div class="col-6">
+    <input type="text" [(ngModel)]="courseName" /> - {{courseName}}
+    <input type="checkbox" [(ngModel)]="isPakistani" />
+    <select name="" id="" [(ngModel)]="provinceName">
+      <option value="">select</option>
+      <option value="">Punjab</option>
+      <option value="">Sinth</option>
+    </select>
+  </div>
+  <div class="col-6">
+    <h2>{{firstName()}}</h2>
 
-    </div>
+  </div>
 </div>

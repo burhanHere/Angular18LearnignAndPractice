@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { PageHeaderComponent } from "../../../reuseableComponent/page-header/page-header.component";
 
 @Component({
   selector: 'app-if-else-control-flow',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, PageHeaderComponent],
   templateUrl: './if-else-control-flow.component.html',
   styleUrl: './if-else-control-flow.component.css',
 })

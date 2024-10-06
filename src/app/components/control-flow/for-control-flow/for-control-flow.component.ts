@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { PageHeaderComponent } from "../../../reuseableComponent/page-header/page-header.component";
 
 @Component({
   selector: 'app-for-control-flow',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, PageHeaderComponent],
   templateUrl: './for-control-flow.component.html',
   styleUrls: ['./for-control-flow.component.css'],
 })

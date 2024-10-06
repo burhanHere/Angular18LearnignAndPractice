@@ -1,11 +1,12 @@
 import { TitleCasePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
+import { PageHeaderComponent } from "../../../reuseableComponent/page-header/page-header.component";
 
 @Component({
   selector: 'app-get-api',
   standalone: true,
-  imports: [TitleCasePipe],
+  imports: [TitleCasePipe, PageHeaderComponent],
   templateUrl: './get-api.component.html',
   styleUrl: './get-api.component.css',
 })

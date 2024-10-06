@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PageHeaderComponent } from '../../../reuseableComponent/page-header/page-header.component';
 
 @Component({
   selector: 'app-structural-directive',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, PageHeaderComponent],
   templateUrl: './structural-directive.component.html',
   styleUrl: './structural-directive.component.css',
 })

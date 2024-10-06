@@ -88,6 +88,11 @@ export class AppComponent {
           },
         ],
       },
+      {
+        isDropDown: false,
+        displayText: 'lifecycle-events',
+        routerLink: 'lifecycle-events',
+      },
     ];
   }
 }

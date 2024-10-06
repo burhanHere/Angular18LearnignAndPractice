@@ -8,11 +8,12 @@ import {
 } from '@angular/forms';
 import { DepartmentService } from '../../../services/departmentService/department-.service';
 import { AlertComponent } from '../../../reuseableComponent/alert/alert.component';
+import { PageHeaderComponent } from "../../../reuseableComponent/page-header/page-header.component";
 
 @Component({
   selector: 'app-post-put-delete-api',
   standalone: true,
-  imports: [ReactiveFormsModule, DatePipe, AlertComponent],
+  imports: [ReactiveFormsModule, DatePipe, AlertComponent, PageHeaderComponent],
   templateUrl: './post-put-delete-api.component.html',
   styleUrl: './post-put-delete-api.component.css',
 })

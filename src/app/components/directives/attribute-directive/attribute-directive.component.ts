@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { PageHeaderComponent } from '../../../reuseableComponent/page-header/page-header.component';
 
 @Component({
   selector: 'app-attribute-directive',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink,PageHeaderComponent],
   templateUrl: './attribute-directive.component.html',
   styleUrl: './attribute-directive.component.css',
 })
