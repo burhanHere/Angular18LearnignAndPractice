@@ -9,7 +9,7 @@ import {
   UpperCasePipe,
 } from '@angular/common';
 import { BootstrapOptions, Component } from '@angular/core';
-import { NaPipe } from '../../Pipes/na.pipe';
+import { NaPipe } from '../../Pipes/na-pipe/na.pipe';
 import { PageHeaderComponent } from '../../reuseableComponent/page-header/page-header.component';
 
 @Component({
