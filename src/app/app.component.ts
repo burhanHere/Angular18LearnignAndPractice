@@ -34,6 +34,16 @@ export class AppComponent {
             displayText: 'attribute-directive',
             routerLink: 'attribute-directive',
           },
+          {
+            isDropDown: false,
+            displayText: 'ng-template',
+            routerLink: 'ng-template',
+          },
+          {
+            isDropDown: false,
+            displayText: 'ng-component',
+            routerLink: 'ng-component',
+          },
         ],
       },
       {

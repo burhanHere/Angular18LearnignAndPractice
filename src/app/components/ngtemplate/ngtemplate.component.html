@@ -1,0 +1,38 @@
+<ng-template #userNotLogedIn>
+  <div class="bg-warning p-3">
+    User Not LogedIn
+  </div>
+</ng-template>
+
+<ng-template #dynemicTemplate>
+  <p>Hi Form Para</p>
+</ng-template>
+
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+  <h1>ng-template</h1>
+</div>
+<div class="row p-2">
+  <div class="col-3">
+    <div class="bg-primary p-3" *ngIf="isUserloggedIn;else userNotLogedIn">
+      {{loggedInUserName}}
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="col-3 text-center">
+      <button class="btn btn-success" (click)="isUserloggedIn=!isUserloggedIn">
+        <!-- {{(!isUserloggedIn)?"Hide":"Show"}} -->
+        Show
+      </button>
+    </div>
+
+  </div>
+</div>
+<div class="row pt-3">
+  <div #dynemicContainer>
+  </div>
+  <div class="col-3 text-center">
+    <button class="btn btn-danger" (click)="loadTemplate()">
+      Load Content
+    </button>
+  </div>
+</div>
