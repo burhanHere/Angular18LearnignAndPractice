@@ -5,11 +5,12 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
+import { PageHeaderComponent } from "../../../reuseableComponent/page-header/page-header.component";
 
 @Component({
   selector: 'app-ngtemplate',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PageHeaderComponent],
   templateUrl: './ngtemplate.component.html',
   styleUrl: './ngtemplate.component.css',
 })

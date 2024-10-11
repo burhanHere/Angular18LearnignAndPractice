@@ -12,9 +12,8 @@ import { GetApiComponent } from './components/api-intigration/get-api/get-api.co
 import { PostPutDeleteApiComponent } from './components/api-intigration/post-put-delete-api/post-put-delete-api.component';
 import { LifecycleEventsComponent } from './components/lifecycle-events/lifecycle-events.component';
 import { NgtemplateComponent } from './components/directives/ngtemplate/ngtemplate.component';
-import { NgcomponentComponent } from './components/directives/ngcomponent/ngcomponent.component';
+import { NgcontainerComponent } from './components/directives/ngcontainer/ngcontainer.component';
 import { ViewChildComponent } from './components/decorators/view-child/view-child.component';
-import { viewChild } from '@angular/core';
 
 export const routes: Routes = [
   {
@@ -79,7 +78,7 @@ export const routes: Routes = [
   },
   {
     path: 'ng-component',
-    component: NgcomponentComponent,
+    component: NgcontainerComponent,
     title: 'ng-component',
   },
   {

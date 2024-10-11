@@ -6,10 +6,10 @@ import { CommonModule } from '@angular/common';
   selector: 'app-ngcomponent',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './ngcomponent.component.html',
-  styleUrl: './ngcomponent.component.css',
+  templateUrl: './ngcontainer.component.html',
+  styleUrl: './ngcontainer.component.css',
 })
-export class NgcomponentComponent {
+export class NgcontainerComponent {
   public userData: any;
   private httpClient: HttpClient;
   constructor() {
