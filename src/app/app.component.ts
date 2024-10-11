@@ -103,6 +103,18 @@ export class AppComponent {
         displayText: 'lifecycle-events',
         routerLink: 'lifecycle-events',
       },
+      {
+        isDropDown: true,
+        displayText: 'decorators',
+        routerLink: '',
+        dropDownListElements: [
+          {
+            isDropDown: false,
+            displayText: 'viewChild',
+            routerLink: 'viewChild',
+          },
+        ],
+      },
     ];
   }
 }

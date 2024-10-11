@@ -11,8 +11,10 @@ import { ReactiveComponent } from './components/forms/reactive/reactive.componen
 import { GetApiComponent } from './components/api-intigration/get-api/get-api.component';
 import { PostPutDeleteApiComponent } from './components/api-intigration/post-put-delete-api/post-put-delete-api.component';
 import { LifecycleEventsComponent } from './components/lifecycle-events/lifecycle-events.component';
-import { NgtemplateComponent } from './components/ngtemplate/ngtemplate.component';
-import { NgcomponentComponent } from './components/ngcomponent/ngcomponent.component';
+import { NgtemplateComponent } from './components/directives/ngtemplate/ngtemplate.component';
+import { NgcomponentComponent } from './components/directives/ngcomponent/ngcomponent.component';
+import { ViewChildComponent } from './components/decorators/view-child/view-child.component';
+import { viewChild } from '@angular/core';
 
 export const routes: Routes = [
   {
@@ -79,6 +81,11 @@ export const routes: Routes = [
     path: 'ng-component',
     component: NgcomponentComponent,
     title: 'ng-component',
+  },
+  {
+    path: 'viewChild',
+    component: ViewChildComponent,
+    title: 'viewChild',
   },
   {
     path: '',

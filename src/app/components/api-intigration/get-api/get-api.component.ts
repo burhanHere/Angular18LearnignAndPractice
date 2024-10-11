@@ -1,6 +1,6 @@
 import { TitleCasePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { PageHeaderComponent } from "../../../reuseableComponent/page-header/page-header.component";
 
 @Component({

@@ -1,0 +1,96 @@
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+  <h1>ng-component</h1>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center pt-3 pb-3">
+    <button class="btn btn-success w-25 " (click)="getData()">
+      Get Data</button>
+  </div>
+
+  <div class="row">
+    <table class="table ww-100">
+      <thead>
+        <tr>
+          <th scope="col">{{'id'|titlecase}}</th>
+          <th scope="col">{{'name'|titlecase}}</th>
+          <th scope="col">{{'username'|titlecase}}</th>
+          <th scope="col">{{'email'|titlecase}}</th>
+          <th scope="col">{{'street'|titlecase}}</th>
+          <th scope="col">{{'suite'|titlecase}}</th>
+          <th scope="col">{{'city'|titlecase}}</th>
+          <th scope="col">{{'zipcode'|titlecase}}</th>
+          <th scope="col">{{'lat'|titlecase}}</th>
+          <th scope="col">{{'lng'|titlecase}}</th>
+          <th scope="col">{{'website'|titlecase}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="userData==null">
+          <tr>
+            <td scope="col">
+              <div class="spinner-border text-primary" role="status">
+              </div>
+            </td>
+            <td scope="col">
+              <div class="spinner-border text-secondary" role="status">
+              </div>
+            </td>
+            <td scope="col">
+              <div class="spinner-border text-success" role="status">
+              </div>
+            </td>
+            <td scope="col">
+              <div class="spinner-border text-danger" role="status">
+              </div>
+            </td>
+            <td scope="col">
+              <div class="spinner-border text-warning" role="status">
+              </div>
+            </td>
+            <td scope="col">
+              <div class="spinner-border text-info" role="status">
+              </div>
+            </td>
+            <td scope="col">
+              <div class="spinner-border text-dark" role="status">
+              </div>
+            </td>
+            <td scope="col">
+              <div class="spinner-border text-primary" role="status">
+              </div>
+            </td>
+            <td scope="col">
+              <div class="spinner-border text-secondary" role="status">
+              </div>
+            </td>
+            <td scope="col">
+              <div class="spinner-border text-success" role="status">
+              </div>
+            </td>
+            <td scope="col">
+              <div class="spinner-border text-danger" role="status">
+              </div>
+            </td>
+          </tr>
+        </ng-container>
+        @for (item of userData; track $index)
+        {
+        <tr>
+          <td scope="col">{{item['id']}}</td>
+          <td scope="col">{{item['name']}}</td>
+          <td scope="col">{{item['username']}}</td>
+          <td scope="col">{{item['email']}}</td>
+          <td scope="col">{{item['address']['street']}}</td>
+          <td scope="col">{{item['address']['suite']}}</td>
+          <td scope="col">{{item['address']['city']}}</td>
+          <td scope="col">{{item['address']['zipcode']}}</td>
+          <td scope="col">{{item['address']['geo']['lat']}}</td>
+          <td scope="col">{{item['address']['geo']['lng']}}</td>
+          <td scope="col">{{item['website']}}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
