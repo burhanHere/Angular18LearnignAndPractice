@@ -11,7 +11,9 @@
 </div>
 
 @if (showAlert==true) {
-<app-alert [alertName]="alertName" [alertText]="alertText" (alertOnClick)="showAlert=$event"></app-alert>
+<div style="width: max-content;position: fixed; right: 35px; bottom: 200px;">
+  <app-alert [alertName]="alertName" [alertText]="alertText" (alertOnClick)="showAlert=$event"></app-alert>
+</div>
 }
 
 <div class="mt-2 p-2 bg-secondary text-white rounded">

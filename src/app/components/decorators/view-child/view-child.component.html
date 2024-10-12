@@ -1,1 +1,15 @@
-<p>view-child works!</p>
+<app-page-header heading="viewChild" paragraph=""></app-page-header>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-3 mt-3 bg-success">
+      <input type="text" name="nameTextBox" id="nameTextBox" #nameTextBox>
+      <input type="text" name="nameTextBox2" id="nameTextBox2" #nameTextBox2>
+      <button class="btn btn-primary" (click)="doSomeThing()">Do Some Thing</button>
+    </div>
+    <div class="col-3 mt-3 bg bg-success">
+      <app-alert alertName="danger" alertText="This is Testing"></app-alert>
+      <app-alert alertName="danger" alertText="This is Testing" #test></app-alert>
+    </div>
+  </div>
+</div>

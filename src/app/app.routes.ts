@@ -14,81 +14,99 @@ import { LifecycleEventsComponent } from './components/lifecycle-events/lifecycl
 import { NgtemplateComponent } from './components/directives/ngtemplate/ngtemplate.component';
 import { NgcontainerComponent } from './components/directives/ngcontainer/ngcontainer.component';
 import { ViewChildComponent } from './components/decorators/view-child/view-child.component';
+import { LoginComponent } from './components/login/login.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 export const routes: Routes = [
   {
-    path: 'data-binding',
-    component: DataBindingComponent,
-    title: 'Data Binding',
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
   {
-    path: 'structural-directive',
-    component: StructuralDirectiveComponent,
-    title: 'Structural Directive',
+    path: 'login',
+    component: LoginComponent,
+    title: 'login',
   },
   {
-    path: 'attribute-directive',
-    component: AttributeDirectiveComponent,
-    title: 'Attribute Directive',
-  },
-  {
-    path: 'if-else-control-flow',
-    component: IfElseControlFlowComponent,
-    title: 'if-else-control-flow',
-  },
-  {
-    path: 'for-control-flow',
-    component: ForControlFlowComponent,
-    title: 'for-control-flow',
-  },
-  {
-    path: 'pipes',
-    component: PipesComponent,
-    title: 'pipes',
-  },
-  {
-    path: 'template-form',
-    component: TemplateComponent,
-    title: 'template-form',
-  },
-  {
-    path: 'reactive-form',
-    component: ReactiveComponent,
-    title: 'reactive-form',
-  },
-  {
-    path: 'get-api',
-    component: GetApiComponent,
-    title: 'get-api',
-  },
-  {
-    path: 'post-put-delete-api',
-    component: PostPutDeleteApiComponent,
-    title: 'post-put-delete-api',
-  },
-  {
-    path: 'lifecycle-events',
-    component: LifecycleEventsComponent,
-    title: 'lifecycle-events',
-  },
-  {
-    path: 'ng-template',
-    component: NgtemplateComponent,
-    title: 'ng-template',
-  },
-  {
-    path: 'ng-component',
-    component: NgcontainerComponent,
-    title: 'ng-component',
-  },
-  {
-    path: 'viewChild',
-    component: ViewChildComponent,
-    title: 'viewChild',
+    path: 'layout',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'data-binding',
+        component: DataBindingComponent,
+        title: 'Data Binding',
+      },
+      {
+        path: 'structural-directive',
+        component: StructuralDirectiveComponent,
+        title: 'Structural Directive',
+      },
+      {
+        path: 'attribute-directive',
+        component: AttributeDirectiveComponent,
+        title: 'Attribute Directive',
+      },
+      {
+        path: 'if-else-control-flow',
+        component: IfElseControlFlowComponent,
+        title: 'if-else-control-flow',
+      },
+      {
+        path: 'for-control-flow',
+        component: ForControlFlowComponent,
+        title: 'for-control-flow',
+      },
+      {
+        path: 'pipes',
+        component: PipesComponent,
+        title: 'pipes',
+      },
+      {
+        path: 'template-form',
+        component: TemplateComponent,
+        title: 'template-form',
+      },
+      {
+        path: 'reactive-form',
+        component: ReactiveComponent,
+        title: 'reactive-form',
+      },
+      {
+        path: 'get-api',
+        component: GetApiComponent,
+        title: 'get-api',
+      },
+      {
+        path: 'post-put-delete-api',
+        component: PostPutDeleteApiComponent,
+        title: 'post-put-delete-api',
+      },
+      {
+        path: 'lifecycle-events',
+        component: LifecycleEventsComponent,
+        title: 'lifecycle-events',
+      },
+      {
+        path: 'ng-template',
+        component: NgtemplateComponent,
+        title: 'ng-template',
+      },
+      {
+        path: 'ng-component',
+        component: NgcontainerComponent,
+        title: 'ng-component',
+      },
+      {
+        path: 'viewChild',
+        component: ViewChildComponent,
+        title: 'viewChild',
+      },
+    ],
   },
   {
     path: '',
-    redirectTo: 'data-binding',
+    redirectTo: 'layout',
     pathMatch: 'full',
   },
   {
