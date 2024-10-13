@@ -6,14 +6,15 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AlertComponent } from '../../reuseableComponent/alert/alert.component';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, AlertComponent, CommonModule],
+  imports: [FormsModule, AlertComponent, CommonModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -23,43 +24,78 @@ export class LoginComponent {
   private router: Router;
   @ViewChild(AlertComponent)
   private loginAlert!: AlertComponent;
+  private httpClient: HttpClient;
 
   constructor() {
     this.logInCredentials = {
-      userName: '',
-      password: '',
+      EmailId: '',
+      Password: '',
     };
     this.router = inject(Router);
     this.showAlert = false;
+    this.httpClient = inject(HttpClient);
   }
 
   public logInUser(): void {
+    // if (
+    //   this.logInCredentials['userName'] !== '' &&
+    //   this.logInCredentials['password'] !== ''
+    // ) {
+    //   if (
+    //     this.logInCredentials['userName'] === '_burhan.here_' &&
+    //     this.logInCredentials['password'] === 'Burhan123@'
+    //   ) {
+    //     sessionStorage.setItem(
+    //       `logedInUser_userName-${this.logInCredentials['userName']}`,
+    //       this.logInCredentials['userName']
+    //     );
+    //     this.showAlert = true;
+    //     this.loginAlert!.alertName = 'successs';
+    //     this.loginAlert!.alertText = 'LogIn Successful.';
+    //     this.router.navigateByUrl('layout');
+    //   } else {
+    //     this.showAlert = true;
+    //     this.loginAlert!.alertName = 'danger';
+    //     this.loginAlert!.alertText = 'Invalid User Credentials.';
+    //   }
+    // }
+
     if (
       this.logInCredentials['userName'] !== '' &&
       this.logInCredentials['password'] !== ''
     ) {
-      if (
-        this.logInCredentials['userName'] === '_burhan.here_' &&
-        this.logInCredentials['password'] === 'Burhan123@'
-      ) {
-        sessionStorage.setItem(
-          `logedInUser_userName-${this.logInCredentials['userName']}`,
-          this.logInCredentials['userName']
+      this.httpClient
+        .post('https://freeapi.gerasim.in/api/JWT/login', this.logInCredentials)
+        .subscribe(
+          (responce: any) => {
+            console.log(responce);
+            if (responce.result) {
+              console.log(responce.message);
+              sessionStorage.setItem('emailId', responce.data['emailId']);
+              sessionStorage.setItem(
+                'refreshToken',
+                responce.data['refreshToken']
+              );
+              sessionStorage.setItem('token', responce.data['token']);
+              sessionStorage.setItem('userId', responce.data['userId']);
+              this.router.navigateByUrl('layout');
+            } else {
+              this.showAlert = true;
+              this.loginAlert.alertName = 'warning';
+              this.loginAlert.alertText = `Login failed.${responce.message}`;
+            }
+          },
+          (err: any) => {
+            console.log(err);
+            this.showAlert = true;
+            this.loginAlert.alertName = 'warning';
+            this.loginAlert.alertText = 'Login failed. Try again.';
+          }
         );
-        sessionStorage.setItem(
-          `logedInUser_password-${this.logInCredentials['userName']}`,
-          this.logInCredentials['password']
-        );
-        this.showAlert = true;
-        this.loginAlert!.alertName = 'successs';
-        this.loginAlert!.alertText = 'LogIn Successful.';
-        this.router.navigateByUrl('layout');
-      } else {
-        debugger;
-        this.showAlert = true;
-        this.loginAlert!.alertName = 'danger';
-        this.loginAlert!.alertText = 'Invalid User Credentials.';
-      }
+    } else {
+      this.showAlert = true;
+      this.loginAlert.alertName = 'warning';
+      this.loginAlert.alertText = 'Please fill the login Credentials.';
     }
   }
 }

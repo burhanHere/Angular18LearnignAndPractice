@@ -16,7 +16,7 @@ import { PageHeaderComponent } from '../../reuseableComponent/page-header/page-h
 @Component({
   selector: 'app-lifecycle-events',
   standalone: true,
-  imports: [AlertComponent,PageHeaderComponent],
+  imports: [AlertComponent, PageHeaderComponent],
   templateUrl: './lifecycle-events.component.html',
   styleUrl: './lifecycle-events.component.css',
 })
@@ -32,36 +32,28 @@ export class LifecycleEventsComponent
 {
   public text: string;
   constructor() {
-    debugger;
     this.text = 'success';
     console.log('constructor()');
   }
   ngOnInit(): void {
-    debugger;
     console.log('ngOnInit()');
   }
   ngDoCheck(): void {
-    debugger;
     console.log('ngDoCheck()');
   }
   ngAfterViewInit(): void {
-    debugger;
     console.log('ngAfterViewInit()');
   }
   ngAfterViewChecked(): void {
-    debugger;
     console.log('ngAfterViewChecked()');
   }
   ngAfterContentInit(): void {
-    debugger;
     console.log('ngAfterContentInit()');
   }
   ngAfterContentChecked(): void {
-    debugger;
     console.log('ngAfterContentChecked()');
   }
   ngOnDestroy(): void {
-    debugger;
     console.log('ngOnDestroy()');
   }
 }

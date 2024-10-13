@@ -1,0 +1,139 @@
+<div style="position: fixed;right: 100px; z-index: 11;">
+  <app-alert (alertOnClick)="showAlert=$event" [ngStyle]="{'display':showAlert?'block':'none'}"></app-alert>
+</div>
+
+<div class="burhan_bodyContainer">
+  <div class="burhan_box">
+    <form action="" #signUpForm="ngForm">
+      <h2 class="justify-content-center">Sign Up</h2>
+      <div class="row w-100 justify-content-between pt-1 pb-5">
+        <div class="burhan_input-box">
+          <input type="text" value="" [(ngModel)]="signUpFormData['firstName']" name="firstName" #firstName="ngModel"
+            required>
+          <span>First Name</span>
+          <i></i>
+          @if (firstName.touched) {
+          <div class="inputError">
+            @if (firstName.errors?.['required']) {
+            <span>First Name is required.</span>
+            }
+          </div>
+          }
+        </div>
+        <div class="burhan_input-box">
+          <input type="text" value="" [(ngModel)]="signUpFormData['lastName']" name="lastName" #lastName="ngModel"
+            required>
+          <span>Last Name</span>
+          <i></i>
+          @if (lastName.touched) {
+          <div class="inputError">
+            @if (lastName.errors?.['required']) {
+            <span>Last Name is required.</span>
+            }
+          </div>
+          }
+        </div>
+        <div class="burhan_input-box">
+          <input type="text" value="" [(ngModel)]="signUpFormData['mobileNo']" name="mobileNo" #mobileNo="ngModel"
+            required>
+          <span>Mobile No</span>
+          <i></i>
+          @if (mobileNo.touched) {
+          <div class="inputError">
+            @if (mobileNo.errors?.['required']) {
+            <span>Mobile No is required.</span>
+            }
+          </div>
+          }
+        </div>
+      </div>
+      <div class="row w-100 justify-content-between  pt-1 pb-5">
+        <div class="burhan_input-box">
+          <input type="text" value="" [(ngModel)]="signUpFormData['userAddress']['city']" name="city" #city="ngModel"
+            required>
+          <span>City</span>
+          <i></i>
+          @if (city.touched) {
+          <div class="inputError">
+            @if (city.errors?.['required']) {
+            <span>City is required.</span>
+            }
+          </div>
+          }
+        </div>
+        <div class="burhan_input-box">
+          <input type="text" value="" [(ngModel)]="signUpFormData['userAddress']['state']" name="state" #state="ngModel"
+            required>
+          <span>State</span>
+          <i></i>
+          @if (state.touched) {
+          <div class="inputError">
+            @if (state.errors?.['required']) {
+            <span>State is required.</span>
+            }
+          </div>
+          }
+        </div>
+        <div class="burhan_input-box">
+          <input type="text" value="" [(ngModel)]="signUpFormData['userAddress']['pincode']" name="pincode"
+            #pincode="ngModel" required>
+          <span>Pin code</span>
+          <i></i>
+          @if (pincode.touched) {
+          <div class="inputError">
+            @if (pincode.errors?.['required']) {
+            <span>Pin code is required.</span>
+            }
+          </div>
+          }
+        </div>
+      </div>
+      <div class="row w-100 justify-content-between  pt-1 pb-5">
+        <div class="burhan_input-box">
+          <input type="text" value="" [(ngModel)]="signUpFormData['userAddress']['addressLine']" name="addressLine"
+            #addressLine="ngModel" required>
+          <span>Address Line</span>
+          <i></i>
+          @if (addressLine.touched) {
+          <div class="inputError">
+            @if (addressLine.errors?.['required']) {
+            <span>Address Line is required.</span>
+            }
+          </div>
+          }
+        </div>
+        <div class="burhan_input-box">
+          <input type="text" value="" [(ngModel)]="signUpFormData['emailId']" name="emailId" #emailId="ngModel"
+            required>
+          <span>Email</span>
+          <i></i>
+          @if (emailId.touched) {
+          <div class="inputError">
+            @if (emailId.errors?.['required']) {
+            <span>Email is required.</span>
+            }
+          </div>
+          }
+        </div>
+        <div class="burhan_input-box">
+          <input type="password" value="" [(ngModel)]="signUpFormData['password']" name="password" #password="ngModel"
+            required>
+          <span>Password</span>
+          <i></i>
+          @if (password.touched) {
+          <div class="inputError">
+            @if (password.errors?.['required']) {
+            <span>Password is required.</span>
+            }
+          </div>
+          }
+        </div>
+      </div>
+      <input type="submit" value="Sign Up" [disabled]="signUpForm.invalid" (click)="signUpUser()">
+      <div class="burhan_links">
+        <a href="#">Forgot Password?</a>
+        <a routerLink="/login">Log In</a>
+      </div>
+    </form>
+  </div>
+</div>

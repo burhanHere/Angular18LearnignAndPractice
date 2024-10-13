@@ -16,12 +16,18 @@ import { NgcontainerComponent } from './components/directives/ngcontainer/ngcont
 import { ViewChildComponent } from './components/decorators/view-child/view-child.component';
 import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 export const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full',
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
+    title: 'signup',
   },
   {
     path: 'login',
@@ -33,19 +39,24 @@ export const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'data-binding',
+        pathMatch: 'full',
+      },
+      {
         path: 'data-binding',
         component: DataBindingComponent,
-        title: 'Data Binding',
+        title: 'data-binding',
       },
       {
         path: 'structural-directive',
         component: StructuralDirectiveComponent,
-        title: 'Structural Directive',
+        title: 'structural-directive',
       },
       {
         path: 'attribute-directive',
         component: AttributeDirectiveComponent,
-        title: 'Attribute Directive',
+        title: 'attribute-directive',
       },
       {
         path: 'if-else-control-flow',
@@ -103,11 +114,6 @@ export const routes: Routes = [
         title: 'viewChild',
       },
     ],
-  },
-  {
-    path: '',
-    redirectTo: 'layout',
-    pathMatch: 'full',
   },
   {
     path: '**',

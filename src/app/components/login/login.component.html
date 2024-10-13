@@ -6,38 +6,38 @@
   <div class="burhan_box">
     <form action="" #logInForm="ngForm">
       <div class="burhan_input-box">
-        <h2>Sign In</h2>
-        <input type="text" value="" [(ngModel)]="logInCredentials['userName']" name="userName" #userName="ngModel"
+        <h2>Log In</h2>
+        <input type="text" value="" [(ngModel)]="logInCredentials['EmailId']" name="EmailId" #EmailId="ngModel"
           required>
-        <span>Username</span>
+        <span>Email</span>
         <i></i>
-        @if (userName.touched) {
+        @if (EmailId.touched) {
         <div class="text-danger">
-          @if (userName.errors?.['required']) {
-          <span>Username is required.</span>
+          @if (EmailId.errors?.['required']) {
+          <span>Email is required.</span>
           }
         </div>
         }
       </div>
       <br>
       <div class="burhan_input-box">
-        <input type="password" value="" [(ngModel)]="logInCredentials['password']" name="password" #password="ngModel"
+        <input type="password" value="" [(ngModel)]="logInCredentials['Password']" name="Password" #Password="ngModel"
           required>
         <span>Enter Password</span>
         <i></i>
-        @if (password.touched) {
+        @if (Password.touched) {
         <div class="text-danger">
-          @if (password.errors?.['required']) {
+          @if (Password.errors?.['required']) {
           <span>Password is required.</span>
           }
         </div>
         }
       </div>
       <br>
-      <input type="submit" value="Login" [disabled]="logInForm.invalid" (click)="logInUser()">
+      <input type="submit" value="Log In" [disabled]="logInForm.invalid" (click)="logInUser()">
       <div class="burhan_links">
         <a href="#">Forgot Password?</a>
-        <a href="#">Sign Up</a>
+        <a routerLink="/signup">Sign Up</a>
       </div>
     </form>
   </div>
