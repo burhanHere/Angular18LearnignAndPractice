@@ -39,9 +39,21 @@
         }
         }
       </ul>
-      <form class="d-flex">
-        <button class="btn btn-warning" type="button" (click)="logoutUser()">Log out</button>
-      </form>
+      <!-- Example single danger button -->
+      <div class="btn-group me-5">
+        <button type="button" class="btn btn-outline-info dropdown-toggle" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Account Info
+        </button>
+        <ul class="dropdown-menu text-center ">
+          <li><a class="dropdown-item">{{userId}}</a></li>
+          <li><a class="dropdown-item">{{emailId}}</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item bg-warning" (click)="logoutUser()">Log out</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
