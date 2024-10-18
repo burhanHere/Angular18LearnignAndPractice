@@ -18,8 +18,8 @@ export class LayoutComponent {
   public title = 'Angular18TutorialsInHindi_LearningPartner';
   public nevbarData: NevbarItem[];
   private router: Router;
-  public emailId: string;
-  public userId: string;
+  public logedInUserData: any;
+
   constructor() {
     this.nevbarData = [
       {
@@ -125,8 +125,9 @@ export class LayoutComponent {
       },
     ];
     this.router = inject(Router);
-    this.emailId = sessionStorage.getItem('emailId') as string;
-    this.userId = sessionStorage.getItem('userId') as string;
+    debugger;
+    this.logedInUserData = localStorage.getItem('loginUserData');
+    this.logedInUserData = this.logedInUserData ? JSON.parse(this.logedInUserData) : null;
   }
 
   public logoutUser(): void {

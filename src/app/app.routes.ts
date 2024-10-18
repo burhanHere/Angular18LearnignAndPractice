@@ -17,6 +17,7 @@ import { ViewChildComponent } from './components/decorators/view-child/view-chil
 import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { authenticationGuard } from './components/guards/authGuard/authentication.guard';
 
 export const routes: Routes = [
   {
@@ -37,6 +38,7 @@ export const routes: Routes = [
   {
     path: 'layout',
     component: LayoutComponent,
+    canActivate: [authenticationGuard],
     children: [
       {
         path: '',

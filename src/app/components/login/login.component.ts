@@ -10,6 +10,7 @@ import { Router, RouterLink } from '@angular/router';
 import { AlertComponent } from '../../reuseableComponent/alert/alert.component';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { json } from 'stream/consumers';
 
 @Component({
   selector: 'app-login',
@@ -70,14 +71,9 @@ export class LoginComponent {
           (responce: any) => {
             console.log(responce);
             if (responce.result) {
+              debugger;
               console.log(responce.message);
-              sessionStorage.setItem('emailId', responce.data['emailId']);
-              sessionStorage.setItem(
-                'refreshToken',
-                responce.data['refreshToken']
-              );
-              sessionStorage.setItem('token', responce.data['token']);
-              sessionStorage.setItem('userId', responce.data['userId']);
+              localStorage.setItem('loginUserData', JSON.stringify(responce.data));
               this.router.navigateByUrl('layout');
             } else {
               this.showAlert = true;
