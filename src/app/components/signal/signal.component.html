@@ -1,0 +1,39 @@
+<app-page-header heading="Signal" paragraph="create signal, update, display"></app-page-header>
+
+<div class="row">
+  <div class="col-3">
+    {{firstName()}} - {{courseName}}
+  </div>
+  <div class="col-3">
+    {{rollNo()}}
+  </div>
+  <div class="col-3">
+    {{fullName()}}
+  </div>
+  <div class="col-3">
+    {{cityList()}}
+  </div>
+  <div class="col-3">
+    {{studentObj() | json}}
+  </div>
+  <div class="col-3">
+    {{signalInSignal() | json}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-3">
+    <button class="btn btn-success" (click)="ChangeFirstName()">Change Name</button>
+  </div>
+  <div class="col-6">
+    <button class="btn btn-success" (click)="ChangeFirstName()">Change First Name</button>
+    <button class="btn btn-success" (click)="ChangeLastName()">Change Last Name</button>
+  </div>
+  <div class="col-3">
+    <button class="btn btn-success" (click)="AddCity()">Add City</button>
+  </div>
+  <div class="col-3">
+    <button class="btn btn-success" (click)="AddPropInStudentObj()">Add in StudentObj</button>
+    <button class="btn btn-success" (click)="updatePropInStudentObj()">Update in StudentObj</button>
+  </div>
+</div>

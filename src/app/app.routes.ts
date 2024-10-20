@@ -18,6 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { authenticationGuard } from './components/guards/authGuard/authentication.guard';
+import { SignalComponent } from './components/signal/signal.component';
 
 export const routes: Routes = [
   {
@@ -114,6 +115,11 @@ export const routes: Routes = [
         path: 'viewChild',
         component: ViewChildComponent,
         title: 'viewChild',
+      },
+      {
+        path: 'signal',
+        component: SignalComponent,
+        title: 'signal',
       },
     ],
   },

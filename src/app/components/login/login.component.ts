@@ -71,7 +71,6 @@ export class LoginComponent {
           (responce: any) => {
             console.log(responce);
             if (responce.result) {
-              debugger;
               console.log(responce.message);
               localStorage.setItem('loginUserData', JSON.stringify(responce.data));
               this.router.navigateByUrl('layout');

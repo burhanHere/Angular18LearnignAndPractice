@@ -123,9 +123,13 @@ export class LayoutComponent {
           },
         ],
       },
+      {
+        isDropDown: false,
+        displayText: 'signal',
+        routerLink: 'signal',
+      },
     ];
     this.router = inject(Router);
-    debugger;
     this.logedInUserData = localStorage.getItem('loginUserData');
     this.logedInUserData = this.logedInUserData ? JSON.parse(this.logedInUserData) : null;
   }
